@@ -1,0 +1,63 @@
+.App {
+  text-align: center;
+  font-size: 2em;
+
+}
+body{
+  background: linear-gradient(to right, rgb(255, 213, 213), rgb(250, 181, 181));
+}
+
+.grid{
+  margin:0 auto;
+  background-color: rgba(255, 255, 255, 0.356);
+  width:24em;
+  height: 41em;
+  display: flex;
+  flex-flow: wrap;  
+  margin-top: 2rem;
+  border-radius: 1em;
+}
+.screen{
+  background-color: rgba(255, 255, 255, 0.671);
+  width:95%;
+  height: 9em;
+  margin: auto;
+  margin-top: 0.5em;
+  border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    vertical-align: bottom;
+    align-items:flex-end;
+}
+.smallNumbers{
+  display: flex;
+  flex-direction: row;
+}
+.actNumber{
+  font-size: 3em;
+}
+.buttons{
+  padding-left: 0.7em;
+}
+
+
+
+button{
+  font-size: 2em;
+  height:3em;
+  padding: auto;
+  border-radius: 0.2em;
+  background-color: rgba(255, 255, 255, 0.671);
+  border: none;
+  margin:1px;
+}
+button:hover{
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.oneplace{
+  width:2.8em;
+}
+.twoplace{
+  width:5.65em;
+}
