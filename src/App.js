@@ -32,6 +32,24 @@ function App() {
     setOperand("");
   }
 
+  const equality = () =>{
+    switch(operand){
+      case '÷':
+        setActNumber(prevNumber/actNumber);
+        break;
+      case '×':
+        setActNumber(prevNumber*actNumber);
+        break;
+      case '-':
+        setActNumber(prevNumber-actNumber);
+        break;
+      case '+':
+        setActNumber(prevNumber+actNumber); 
+    }
+    setPrevNumber("");
+    setOperand("");
+  }
+
   return (
     
     <div className="grid">
@@ -61,7 +79,7 @@ function App() {
         <button className="oneplace" onClick={() => operator(4)}>+</button>
         <button className="oneplace" >.</button>
         <button className="oneplace" onClick={() => setActNumber(actNumber*10 + 0)}>0</button>
-        <button className="twoplace" onClick={operator}>=</button>
+        <button className="twoplace" onClick={equality}>=</button>
 
 
       </div>
