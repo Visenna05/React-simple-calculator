@@ -1,5 +1,4 @@
 import {useState} from "react";
-import { act } from "react-dom/test-utils";
 import './App.css';
 
 
@@ -9,8 +8,15 @@ function App() {
   const [operand, setOperand] = useState("");
 
   const operator =(action)=>{
-    setPrevNumber(actNumber);
-    setActNumber(0);
+    
+      if(operand!==""){
+        setPrevNumber(equations());
+      }
+      else{
+        setPrevNumber(actNumber);
+      }
+
+      setActNumber(0);
 
     switch(action){
       case 1:
@@ -24,27 +30,54 @@ function App() {
         break;
       case 4:
         setOperand('+');
+        break;
+      default:
+        return 0
   }
   }
-  const deleting = ()=>{
+  const erase = ()=>{
     setActNumber(0);
     setPrevNumber(0);
     setOperand("");
   }
+ // const deleting = () =>{
+   // setActNumber
+  //}
 
   const equality = () =>{
+    let result = equations();
+    result = result.toString();
+    setActNumber(result.slice(0,12));
+
+    setPrevNumber("");
+    setOperand("");
+
+  }
+
+  const addDigit = (e) =>{
+    let input = e.target.value
+        if(actNumber === 0){
+            setActNumber(input);
+        } else {
+            setActNumber(actNumber+input);
+        }
+  }
+
+  const equations = () =>{
     switch(operand){
       case '÷':
-        setActNumber(prevNumber/actNumber);
-        break;
+        return(parseFloat(prevNumber)/parseFloat(actNumber));
+
       case '×':
-        setActNumber(prevNumber*actNumber);
-        break;
+        return(parseFloat(prevNumber)*parseFloat(actNumber));
+
       case '-':
-        setActNumber(prevNumber-actNumber);
-        break;
+        return(parseFloat(prevNumber)-parseFloat(actNumber));
+
       case '+':
-        setActNumber(prevNumber+actNumber); 
+        return(parseFloat(prevNumber)+parseFloat(actNumber));
+      default:
+        return 0;
     }
   }
 
@@ -60,23 +93,23 @@ function App() {
       </div>
 
       <div className="buttons">
-        <button className="twoplace" onClick={deleting}>AC</button>
-        <button className="oneplace" >DEL</button>
+        <button className="twoplace" onClick={erase}>AC</button>
+        <button className="oneplace" onClick={erase}>DEL</button>
         <button className="oneplace" onClick={() => operator(1)}>÷</button>
-        <button className="oneplace" onClick={() => setActNumber(actNumber*10 + 7)}>7</button>
-        <button className="oneplace" onClick={() => setActNumber(actNumber*10 + 8)}>8</button>
-        <button className="oneplace" onClick={() => setActNumber(actNumber*10 + 9)}>9</button>
+        <button className="oneplace" onClick={addDigit} value={7}>7</button>
+        <button className="oneplace" onClick={addDigit} value={8}>8</button>
+        <button className="oneplace" onClick={addDigit} value={9}>9</button>
         <button className="oneplace" onClick={() => operator(2)}>×</button>
-        <button className="oneplace" onClick={() => setActNumber(actNumber*10 + 4)}>4</button>
-        <button className="oneplace" onClick={() => setActNumber(actNumber*10 + 5)}>5</button>
-        <button className="oneplace" onClick={() => setActNumber(actNumber*10 + 6)}>6</button>
+        <button className="oneplace" onClick={addDigit} value={4}>4</button>
+        <button className="oneplace" onClick={addDigit} value={5}>5</button>
+        <button className="oneplace" onClick={addDigit} value={6}>6</button>
         <button className="oneplace" onClick={() => operator(3)}>-</button>
-        <button className="oneplace" onClick={() => setActNumber(actNumber*10 + 1)}>1</button>
-        <button className="oneplace" onClick={() => setActNumber(actNumber*10 + 2)}>2</button>
-        <button className="oneplace" onClick={() => setActNumber(actNumber*10 + 3)}>3</button>
+        <button className="oneplace" onClick={addDigit} value={1}>1</button>
+        <button className="oneplace" onClick={addDigit} value={2}>2</button>
+        <button className="oneplace" onClick={addDigit} value={3}>3</button>
         <button className="oneplace" onClick={() => operator(4)}>+</button>
-        <button className="oneplace" >.</button>
-        <button className="oneplace" onClick={() => setActNumber(actNumber*10 + 0)}>0</button>
+        <button className="oneplace" onClick={addDigit} value={"."}>.</button>
+        <button className="oneplace" onClick={addDigit} value={0}>0</button>
         <button className="twoplace" onClick={equality}>=</button>
 
 
