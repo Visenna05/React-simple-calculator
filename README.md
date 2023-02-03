@@ -1,6 +1,9 @@
 # Introducion
 
-The repository contains the files I used to write a simple calculator in React JS
+Simple calculator made using React JS.
+
+![image](https://user-images.githubusercontent.com/107170446/216632369-bea6afca-379d-4235-9234-721815e8a815.png)
+
 
 ***
 
