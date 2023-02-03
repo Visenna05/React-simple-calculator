@@ -1,10 +1,10 @@
-# Introducion
+<center># Introducion
 
 Simple calculator made using React JS.
 
-![image](https://user-images.githubusercontent.com/107170446/216632369-bea6afca-379d-4235-9234-721815e8a815.png)
+![image](https://user-images.githubusercontent.com/107170446/216633066-83afa337-7a0b-4218-a577-0f3487140358.png)
 
-
+</center>
 ***
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
