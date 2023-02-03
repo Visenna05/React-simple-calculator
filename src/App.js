@@ -46,8 +46,6 @@ function App() {
       case '+':
         setActNumber(prevNumber+actNumber); 
     }
-    setPrevNumber("");
-    setOperand("");
   }
 
   return (
