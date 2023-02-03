@@ -55,12 +55,19 @@ function App() {
   }
 
   const addDigit = (e) =>{
-    let input = e.target.value
+    let input = e.target.value;
+    let number = actNumber;
+    number=number.lenght;
+    console.log(number);
+    if(actNumber<10000000000){
+
         if(actNumber === 0){
             setActNumber(input);
         } else {
             setActNumber(actNumber+input);
         }
+      }
+
   }
 
   const equations = () =>{
